@@ -1,0 +1,61 @@
+{
+    "name": "laveroadmin/menus",
+    "title": {
+        "en": "Site Menus Builder",
+        "ru": "Конструктор меню сайта"
+    },
+    "description": {
+        "en": "Build and manage public site navigation menus (header, footer, sidebar) with drag-and-drop hierarchy and permanent caching.",
+        "ru": "Управление меню публичного сайта (шапка, подвал, сайдбар) с drag-and-drop иерархией и постоянным кэшированием."
+    },
+    "category": "content",
+    "icon": "icon-bars",
+    "version": "1.0.0",
+    "author": {
+        "name": "Aleksandr Kireev",
+        "email": "hello@bespredel.name",
+        "url": "https://bespredel.name"
+    },
+    "github": "https://github.com/LaveroAdmin/menus",
+    "setup": {
+        "commands": [
+            {
+                "cmd": "php artisan migrate",
+                "desc": {
+                    "en": "Create site_menus and site_menu_items tables",
+                    "ru": "Создание таблиц site_menus и site_menu_items"
+                }
+            },
+            {
+                "cmd": "php artisan admin:import menus",
+                "desc": {
+                    "en": "Import Site Menus admin menu and permissions",
+                    "ru": "Импорт пункта меню и прав доступа"
+                }
+            }
+        ],
+        "config": {
+            "file": "resources/views/layouts/app.blade.php",
+            "code": "@foreach(site_menu('header') as $item)\n    <a href=\"{{ $item['url'] }}\" target=\"{{ $item['target'] }}\">{{ $item['title'] }}</a>\n@endforeach"
+        },
+        "requirements": {
+            "en": ["PHP >= 8.1"],
+            "ru": ["PHP >= 8.1"]
+        },
+        "notes": {
+            "en": [
+                "Use site_menu('header') in Blade templates to retrieve the nested menu tree (cached forever until updated)."
+            ],
+            "ru": [
+                "Используйте хелпер site_menu('header') в Blade-шаблонах для получения дерева меню (кэшируется до изменения)."
+            ]
+        }
+    },
+    "key": "menus",
+    "compatibility": {
+        "php": ">=8.1",
+        "laravel": "^10.0 || ^11.0 || ^12.0 || ^13.0",
+        "admin": "^1.0",
+        "extensions": ["pdo"]
+    }
+}

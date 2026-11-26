@@ -1,0 +1,32 @@
+{
+    "name": "laveroadmin/menus",
+    "description": "Public site navigation and multi-menu builder with drag-and-drop Tree and forever caching.",
+    "type": "library",
+    "keywords": ["lavero-admin", "laveroadmin", "menus", "navigation"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Aleksandr Kireev",
+            "email": "hello@bespredel.name"
+        }
+    ],
+    "require": {
+        "php": ">=8.1",
+        "laveroadmin/laveroadmin": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "LaveroAdmin\\Admin\\Menus\\": "src/"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "LaveroAdmin\\Admin\\Menus\\MenusServiceProvider"
+            ]
+        }
+    }
+}
